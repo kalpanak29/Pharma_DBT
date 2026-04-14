@@ -1,1 +1,1 @@
-select * from {{ ref('int_encounters') }}
+select * from {{ ref('silver_pharma') }}

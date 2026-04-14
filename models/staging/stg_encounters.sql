@@ -1,1 +1,1 @@
-select * from {{ ref('stg_patients') }}
+select 1 as encounter_id
