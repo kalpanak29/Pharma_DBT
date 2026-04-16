@@ -1,1 +1,2 @@
-select * from {{ ref('stg_medications') }}
+SELECT *
+FROM {{ ref('stg_medications') }}

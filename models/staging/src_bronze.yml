@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: bronze
+    tables:
+      - name: encounters
+      - name: patients
+      - name: medications
+      - name: procedures

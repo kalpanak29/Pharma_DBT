@@ -1,1 +1,3 @@
-select * from {{ ref('int_encounters') }}
+SELECT 
+    COUNT(*) AS total_medications
+FROM {{ ref('int_medications') }}

@@ -1,1 +1,2 @@
-select * from {{ ref('stg_patients') }}
+SELECT *
+FROM {{ source('bronze', 'procedures') }}

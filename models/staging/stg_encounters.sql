@@ -1,1 +1,3 @@
-select 1 as encounter_id
+SELECT *
+FROM {{ source('bronze', 'encounters') }}
+WHERE patient IS NOT NULL

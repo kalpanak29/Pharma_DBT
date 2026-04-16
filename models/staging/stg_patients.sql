@@ -1,1 +1,2 @@
-select 1 as patient_id
+SELECT *
+FROM {{ source('bronze', 'patients') }}
