@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: bronze
+    schema: dbo   # 👈 IMPORTANT FIX
     tables:
       - name: encounters
       - name: patients
