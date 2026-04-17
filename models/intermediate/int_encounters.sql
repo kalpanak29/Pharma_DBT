@@ -1,6 +1,9 @@
 SELECT 
-    e.*,
-    p.id AS patient_id
-FROM {{ ref('stg_encounters') }} e
-LEFT JOIN {{ ref('stg_patients') }} p
-ON e.patient = p.id
+    ID           AS encounter_id,
+    PATIENT      AS patient_id,
+    DATE         AS encounter_date,
+    CODE,
+    DESCRIPTION,
+    REASONCODE,
+    REASONDESCRIPTION
+FROM {{ ref('stg_encounters') }}
