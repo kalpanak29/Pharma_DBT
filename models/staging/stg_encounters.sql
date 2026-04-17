@@ -1,3 +1,3 @@
 SELECT *
 FROM {{ source('bronze', 'encounters') }}
-WHERE patient IS NOT NULL
+WHERE PATIENT IS NOT NULLL
