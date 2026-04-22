@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataBuildToolJob",
+    "displayName": "dbt_pharma"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6e3e1c54-4245-8e32-4563-2867b3419eba"
+  }
+}

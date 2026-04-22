@@ -1,0 +1,32 @@
+{
+  "project": {
+    "projectType": "GitHub",
+    "branch": "main",
+    "folderPath": "dbt",
+    "externalReferences": {
+      "connection": "92f51581-071f-4318-aa58-9955719c18fe"
+    }
+  },
+  "profile": {
+    "profileType": "DataWarehouse",
+    "schema": "dbo",
+    "connectionSettings": {
+      "name": "dbt_pharma_wh",
+      "properties": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "be7626ba-ac38-4ed0-a0ce-c6dbbd75079b",
+          "artifactId": "8689a31e-ea65-4570-a251-d0e453281245",
+          "endPoint": "bzhc5bdddrdudnn4fof25uxzta-xithnpryvtie5igoy3n325ihtm.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    }
+  },
+  "command": {
+    "operation": "build",
+    "arguments": {
+      "exclude": "",
+      "threads": 4
+    }
+  }
+}

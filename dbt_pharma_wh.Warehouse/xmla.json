@@ -1,0 +1,1725 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "encounters",
+        "sourceLineageTag": "[dbo].[encounters]",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "string",
+            "sourceColumn": "ID",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ID",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "DATE",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PATIENT",
+            "dataType": "string",
+            "sourceColumn": "PATIENT",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "PATIENT",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CODE",
+            "dataType": "int64",
+            "sourceColumn": "CODE",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONCODE",
+            "dataType": "int64",
+            "sourceColumn": "REASONCODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "REASONCODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONDESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "REASONDESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "REASONDESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "encounters",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "gold_encounters",
+        "sourceLineageTag": "[dbo].[gold_encounters]",
+        "columns": [
+          {
+            "name": "patient_id",
+            "dataType": "string",
+            "sourceColumn": "patient_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "patient_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "total_encounters",
+            "dataType": "int64",
+            "sourceColumn": "total_encounters",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_encounters",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "gold_encounters",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "gold_medications",
+        "sourceLineageTag": "[dbo].[gold_medications]",
+        "columns": [
+          {
+            "name": "total_medications",
+            "dataType": "int64",
+            "sourceColumn": "total_medications",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_medications",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "gold_medications",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "gold_procedures",
+        "sourceLineageTag": "[dbo].[gold_procedures]",
+        "columns": [
+          {
+            "name": "total_procedures",
+            "dataType": "int64",
+            "sourceColumn": "total_procedures",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_procedures",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "gold_procedures",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "int_encounters",
+        "sourceLineageTag": "[dbo].[int_encounters]",
+        "columns": [
+          {
+            "name": "patient_id",
+            "dataType": "string",
+            "sourceColumn": "patient_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "patient_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "total_encounters",
+            "dataType": "int64",
+            "sourceColumn": "total_encounters",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_encounters",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "unique_enc_reasons",
+            "dataType": "int64",
+            "sourceColumn": "unique_enc_reasons",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "unique_enc_reasons",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "int_encounters",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "int_medications",
+        "sourceLineageTag": "[dbo].[int_medications]",
+        "columns": [
+          {
+            "name": "patient_id",
+            "dataType": "string",
+            "sourceColumn": "patient_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "patient_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "total_medications",
+            "dataType": "int64",
+            "sourceColumn": "total_medications",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_medications",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "unique_medications",
+            "dataType": "int64",
+            "sourceColumn": "unique_medications",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "unique_medications",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "active_medications",
+            "dataType": "int64",
+            "sourceColumn": "active_medications",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "active_medications",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "int_medications",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "int_procedures",
+        "sourceLineageTag": "[dbo].[int_procedures]",
+        "columns": [
+          {
+            "name": "patient_id",
+            "dataType": "string",
+            "sourceColumn": "patient_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "patient_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "total_procedures",
+            "dataType": "int64",
+            "sourceColumn": "total_procedures",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_procedures",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "unique_procedures",
+            "dataType": "int64",
+            "sourceColumn": "unique_procedures",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "unique_procedures",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "int_procedures",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "medications",
+        "sourceLineageTag": "[dbo].[medications]",
+        "columns": [
+          {
+            "name": "START",
+            "dataType": "dateTime",
+            "sourceColumn": "START",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "START",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "STOP",
+            "dataType": "dateTime",
+            "sourceColumn": "STOP",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "STOP",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PATIENT",
+            "dataType": "string",
+            "sourceColumn": "PATIENT",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "PATIENT",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ENCOUNTER",
+            "dataType": "string",
+            "sourceColumn": "ENCOUNTER",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ENCOUNTER",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CODE",
+            "dataType": "int64",
+            "sourceColumn": "CODE",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONCODE",
+            "dataType": "int64",
+            "sourceColumn": "REASONCODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "REASONCODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONDESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "REASONDESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "REASONDESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "medications",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "patients",
+        "sourceLineageTag": "[dbo].[patients]",
+        "columns": [
+          {
+            "name": "patient",
+            "dataType": "string",
+            "sourceColumn": "patient",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "patient",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "birthdate",
+            "dataType": "dateTime",
+            "sourceColumn": "birthdate",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "birthdate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "deathdate",
+            "dataType": "dateTime",
+            "sourceColumn": "deathdate",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "deathdate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ssn",
+            "dataType": "string",
+            "sourceColumn": "ssn",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ssn",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "drivers",
+            "dataType": "string",
+            "sourceColumn": "drivers",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "drivers",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "passport",
+            "dataType": "string",
+            "sourceColumn": "passport",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "passport",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "prefix",
+            "dataType": "string",
+            "sourceColumn": "prefix",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "prefix",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "first",
+            "dataType": "string",
+            "sourceColumn": "first",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "first",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "last",
+            "dataType": "string",
+            "sourceColumn": "last",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "last",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "suffix",
+            "dataType": "string",
+            "sourceColumn": "suffix",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "suffix",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "maiden",
+            "dataType": "string",
+            "sourceColumn": "maiden",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "maiden",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "marital",
+            "dataType": "string",
+            "sourceColumn": "marital",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "marital",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "race",
+            "dataType": "string",
+            "sourceColumn": "race",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "race",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ethnicity",
+            "dataType": "string",
+            "sourceColumn": "ethnicity",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ethnicity",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "gender",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "birthplace",
+            "dataType": "string",
+            "sourceColumn": "birthplace",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "birthplace",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "address",
+            "dataType": "string",
+            "sourceColumn": "address",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "address",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "patients",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "procedures",
+        "sourceLineageTag": "[dbo].[procedures]",
+        "columns": [
+          {
+            "name": "DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "DATE",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PATIENT",
+            "dataType": "string",
+            "sourceColumn": "PATIENT",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "PATIENT",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ENCOUNTER",
+            "dataType": "string",
+            "sourceColumn": "ENCOUNTER",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ENCOUNTER",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CODE",
+            "dataType": "int64",
+            "sourceColumn": "CODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "CODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONCODE",
+            "dataType": "int64",
+            "sourceColumn": "REASONCODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "REASONCODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONDESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "REASONDESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "REASONDESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "procedures",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "silver_pharma",
+        "sourceLineageTag": "[dbo].[silver_pharma]",
+        "columns": [
+          {
+            "name": "patient_id",
+            "dataType": "string",
+            "sourceColumn": "patient_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "patient_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "gender",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "is_alive",
+            "dataType": "int64",
+            "sourceColumn": "is_alive",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "is_alive",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "total_encounters",
+            "dataType": "int64",
+            "sourceColumn": "total_encounters",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_encounters",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "unique_enc_reasons",
+            "dataType": "int64",
+            "sourceColumn": "unique_enc_reasons",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "unique_enc_reasons",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "total_medications",
+            "dataType": "int64",
+            "sourceColumn": "total_medications",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_medications",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "unique_medications",
+            "dataType": "int64",
+            "sourceColumn": "unique_medications",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "unique_medications",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "active_medications",
+            "dataType": "int64",
+            "sourceColumn": "active_medications",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "active_medications",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "total_procedures",
+            "dataType": "int64",
+            "sourceColumn": "total_procedures",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "total_procedures",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "unique_procedures",
+            "dataType": "int64",
+            "sourceColumn": "unique_procedures",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "unique_procedures",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "silver_pharma",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "stg_encounters",
+        "sourceLineageTag": "[dbo].[stg_encounters]",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "string",
+            "sourceColumn": "ID",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ID",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "DATE",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PATIENT",
+            "dataType": "string",
+            "sourceColumn": "PATIENT",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "PATIENT",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CODE",
+            "dataType": "int64",
+            "sourceColumn": "CODE",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONCODE",
+            "dataType": "int64",
+            "sourceColumn": "REASONCODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "REASONCODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONDESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "REASONDESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "REASONDESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "stg_encounters",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "stg_medications",
+        "sourceLineageTag": "[dbo].[stg_medications]",
+        "columns": [
+          {
+            "name": "START",
+            "dataType": "dateTime",
+            "sourceColumn": "START",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "START",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "STOP",
+            "dataType": "dateTime",
+            "sourceColumn": "STOP",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "STOP",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PATIENT",
+            "dataType": "string",
+            "sourceColumn": "PATIENT",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "PATIENT",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ENCOUNTER",
+            "dataType": "string",
+            "sourceColumn": "ENCOUNTER",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ENCOUNTER",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CODE",
+            "dataType": "int64",
+            "sourceColumn": "CODE",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "CODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONCODE",
+            "dataType": "int64",
+            "sourceColumn": "REASONCODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "REASONCODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONDESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "REASONDESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "REASONDESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "stg_medications",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "stg_patients",
+        "sourceLineageTag": "[dbo].[stg_patients]",
+        "columns": [
+          {
+            "name": "patient",
+            "dataType": "string",
+            "sourceColumn": "patient",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "patient",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "birthdate",
+            "dataType": "dateTime",
+            "sourceColumn": "birthdate",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "birthdate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "deathdate",
+            "dataType": "dateTime",
+            "sourceColumn": "deathdate",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "deathdate",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "gender",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "is_alive",
+            "dataType": "int64",
+            "sourceColumn": "is_alive",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "is_alive",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "stg_patients",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "stg_procedures",
+        "sourceLineageTag": "[dbo].[stg_procedures]",
+        "columns": [
+          {
+            "name": "DATE",
+            "dataType": "dateTime",
+            "sourceColumn": "DATE",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "DATE",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "PATIENT",
+            "dataType": "string",
+            "sourceColumn": "PATIENT",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "PATIENT",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ENCOUNTER",
+            "dataType": "string",
+            "sourceColumn": "ENCOUNTER",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "ENCOUNTER",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "CODE",
+            "dataType": "int64",
+            "sourceColumn": "CODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "CODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "DESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "DESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "DESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONCODE",
+            "dataType": "int64",
+            "sourceColumn": "REASONCODE",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "REASONCODE",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "REASONDESCRIPTION",
+            "dataType": "string",
+            "sourceColumn": "REASONDESCRIPTION",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "REASONDESCRIPTION",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "stg_procedures",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}
