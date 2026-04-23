@@ -28,7 +28,7 @@ Analytics / Reporting
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 * Microsoft Fabric (Lakehouse + Warehouse)
 * dbt (Data Build Tool)
@@ -62,7 +62,7 @@ models/
 
 ---
 
-## 🚀 Implementation Steps
+##  Implementation Steps
 
 ### 1. Bronze Layer (Ingestion)
 
@@ -140,7 +140,6 @@ Run:
 dbt build
 ```
 
----
 
 ### 8. Validation
 
@@ -161,16 +160,14 @@ dbt build
 
 ---
 
-## 📊 Output
+## Output
 
 * **Silver Layer:** Clean, integrated patient dataset
 * **Gold Layer:** Business-ready KPI datasets
 
 
 
-## 👩‍💻 Author
 
-**Kalpana Amrutkar Kothawade**
 
----
+
 
